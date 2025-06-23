@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Đăng Đề Cương</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 <h2>Đăng Đề Cương</h2>
@@ -10,17 +12,19 @@
     <label>Môn học:</label>
     <select name="subjectId">
         <option th:each="mon : ${subjects}" th:value="${mon.id}" th:text="${mon.tenMon}"></option>
-    </select><br><br>
+    </select>
 
-    <label>Mô tả:</label><br>
-    <textarea name="moTa" rows="4" cols="40"></textarea><br><br>
+    <label>Mô tả:</label>
+    <textarea name="moTa" rows="4"></textarea>
 
-    <label>Chọn file (.pdf, .docx):</label><br>
-    <input type="file" name="file" accept=".pdf,.docx" required><br><br>
+    <label>Chọn file (.pdf, .docx):</label>
+    <input type="file" name="file" accept=".pdf,.docx" required>
 
     <button type="submit">Đăng</button>
 </form>
 
 <p th:text="${thongBao}"></p>
+
+<a href="/">← Quay về trang chủ</a>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <title>Tìm kiếm Đề cương</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 <h1>Tìm kiếm Đề cương</h1>
@@ -13,7 +14,7 @@
 </form>
 
 <h2>Kết quả:</h2>
-<table border="1">
+<table>
     <tr>
         <th>Môn học</th>
         <th>Mô tả</th>
@@ -22,9 +23,10 @@
     <tr th:each="dc : ${ketQua}">
         <td th:text="${dc.subject.tenMon}"></td>
         <td th:text="${dc.moTa}"></td>
-        <td><a th:href="@{${dc.filePath}}" target="_blank">Tải file</a></td>
+        <td><a th:href="@{/${dc.filePath}}" target="_blank">Tải file</a></td>
     </tr>
 </table>
 
+<a href="/">← Quay về trang chủ</a>
 </body>
 </html>

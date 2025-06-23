@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Đăng Đề Cương</title>
+</head>
+<body>
+<h2>Đăng Đề Cương</h2>
+
+<form method="post" enctype="multipart/form-data" th:action="@{/dang}">
+    <label>Môn học:</label>
+    <select name="subjectId">
+        <option th:each="mon : ${subjects}" th:value="${mon.id}" th:text="${mon.tenMon}"></option>
+    </select><br><br>
+
+    <label>Mô tả:</label><br>
+    <textarea name="moTa" rows="4" cols="40"></textarea><br><br>
+
+    <label>Chọn file (.pdf, .docx):</label><br>
+    <input type="file" name="file" accept=".pdf,.docx" required><br><br>
+
+    <button type="submit">Đăng</button>
+</form>
+
+<p th:text="${thongBao}"></p>
+</body>
+</html>

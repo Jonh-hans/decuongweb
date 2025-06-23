@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tìm kiếm Đề cương</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Tìm kiếm Đề cương</h1>
+
+<form action="/timkiem" method="get">
+    <input type="text" name="keyword" placeholder="Nhập tên môn học..." />
+    <button type="submit">Tìm</button>
+</form>
+
+<h2>Kết quả:</h2>
+<table border="1">
+    <tr>
+        <th>Môn học</th>
+        <th>Mô tả</th>
+        <th>File</th>
+    </tr>
+    <tr th:each="dc : ${ketQua}">
+        <td th:text="${dc.subject.tenMon}"></td>
+        <td th:text="${dc.moTa}"></td>
+        <td><a th:href="@{${dc.filePath}}" target="_blank">Tải file</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
